@@ -1,0 +1,192 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="atv"/>
+        <attribute name="authors" value="Nathalia Gomes"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-03-30 09:22:43 "/>
+        <attribute name="created" value="TmF0aGFsaWEgR29tZXM7REVTS1RPUC1DUk1HVk5GOzIwMjUtMDMtMTc7IjA2OjA1OjQwICI7MzY0NQ=="/>
+        <attribute name="edited" value="TmF0aGFsaWEgR29tZXM7REVTS1RPUC1DUk1HVk5GOzIwMjUtMDMtMTc7IjA2OjQ3OjE5ICI7MTA7MzgxMw=="/>
+        <attribute name="edited" value="YW5hbGk7QU5BTElDRTsyMDI1LTAzLTMwOyIwOToyMjo0MyAiOzE7MjMwOA=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="opcao" type="Integer" array="False" size=""/>
+            <output expression="&quot;bem vindo ao jogo! escolha uma op&#231;&#227;o:&quot;" newline="True"/>
+            <output expression="&quot;1 - pergunta e resposta&quot;" newline="True"/>
+            <output expression="&quot;2 - cobra na caixa&quot;" newline="True"/>
+            <output expression="&quot;3 - gousmas war&quot;" newline="True"/>
+            <output expression="&quot;4 - sair&quot;" newline="True"/>
+            <input variable="opcao"/>
+            <while expression="opcao &lt;&gt; 4">
+                <if expression="opcao = 1">
+                    <then>
+                        <call expression="PerguntaEResposta()"/>
+                    </then>
+                    <else>
+                        <if expression="opcao = 2">
+                            <then>
+                                <call expression="CobraNaCaixa()"/>
+                            </then>
+                            <else>
+                                <if expression="opcao = 3">
+                                    <then>
+                                        <call expression="GousmasWar()"/>
+                                    </then>
+                                    <else/>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </while>
+            <output expression="&quot;obrigado por jogar!&quot;" newline="True"/>
+        </body>
+    </function>
+    <function name="CobraNaCaixa" type="Integer" variable="caixaEscolhida">
+        <parameters/>
+        <body>
+            <declare name="caixaEscolhida" type="Integer" array="False" size=""/>
+            <declare name="cobra" type="Integer" array="False" size=""/>
+            <declare name="botao" type="Integer" array="False" size=""/>
+            <assign variable="cobra" expression="Random(5) + 1"/>
+            <assign variable="botao" expression="Random(5) + 1"/>
+            <while expression="botao = cobra">
+                <assign variable="botao" expression="Random(5) + 1"/>
+            </while>
+            <output expression="&quot;bem vindo ao cobra na caixa!&quot;" newline="True"/>
+            <output expression="&quot;escolha uma caixa de 1 a 5:&quot;" newline="True"/>
+            <input variable="caixaEscolhida"/>
+            <if expression="caixaEscolhida = cobra">
+                <then>
+                    <output expression="&quot;voc&#234; perdeu! a cobra estava nessa caixa!&quot;" newline="True"/>
+                </then>
+                <else>
+                    <if expression="caixaEscolhida = botao">
+                        <then>
+                            <output expression="&quot;parab&#233;ns! voc&#234; encontrou o bot&#227;o e escapou!&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="&quot;nada aqui! tente outra vez&quot;" newline="True"/>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+    <function name="GousmasWar" type="None" variable="jogarNovamente">
+        <parameters/>
+        <body>
+            <declare name="furiaGousma1, furiaGousma2" type="Integer" array="False" size=""/>
+            <declare name="furiaOponente1, furiaOponente2" type="Integer" array="False" size=""/>
+            <declare name="jogarNovamente" type="String" array="False" size=""/>
+            <declare name="S" type="String" array="False" size=""/>
+            <declare name="escolha, alvo" type="Integer" array="False" size=""/>
+            <declare name="dividirGousma" type="Integer" array="False" size=""/>
+            <assign variable="furiaGousma1" expression="1"/>
+            <assign variable="furiaGousma2" expression="1"/>
+            <assign variable="furiaOponente1" expression="1"/>
+            <assign variable="furiaOponente2" expression="1"/>
+            <assign variable="jogarNovamente" expression="&quot;S&quot;"/>
+            <while expression="jogarNovamente = &quot;S&quot;">
+                <output expression="&quot;bem-vindo ao gousmas war&quot;" newline="True"/>
+                <while expression="(furiaGousma1 &gt; 0 or furiaGousma2 &gt; 0) and (furiaOponente1 &gt; 0 or furiaOponente2 &gt; 0)">
+                    <output expression="&quot;escolha sua a&#231;&#227;o: 1 - atacar | 2 - dividir&quot;" newline="True"/>
+                    <input variable="escolha"/>
+                    <if expression="escolha = 1">
+                        <then>
+                            <output expression="&quot;Escolha qual Gousma atacar: 1 ou 2&quot;" newline="True"/>
+                            <input variable="alvo"/>
+                            <if expression="alvo = 1">
+                                <then>
+                                    <assign variable="furiaOponente1" expression="furiaOponente1 + furiaGousma1"/>
+                                    <assign variable="furiaGousma1" expression="0"/>
+                                </then>
+                                <else>
+                                    <assign variable="furiaOponente2" expression="furiaOponente2 + furiaGousma2"/>
+                                    <assign variable="furiaGousma2" expression="0"/>
+                                </else>
+                            </if>
+                        </then>
+                        <else>
+                            <if expression="escolha = 2">
+                                <then>
+                                    <output expression="&quot;escolha qual gousma dividir: 1 ou 2&quot;" newline="True"/>
+                                    <input variable="dividirGousma"/>
+                                    <if expression="dividirGousma = 1">
+                                        <then>
+                                            <assign variable="furiaGousma2" expression="furiaGousma1 / 2"/>
+                                            <assign variable="furiaGousma1" expression="furiaGousma1 / 2"/>
+                                        </then>
+                                        <else>
+                                            <assign variable="furiaGousma1" expression="furiaGousma2 / 2"/>
+                                            <assign variable="furiaGousma2" expression="furiaGousma2 / 2"/>
+                                        </else>
+                                    </if>
+                                </then>
+                                <else/>
+                            </if>
+                        </else>
+                    </if>
+                    <if expression="furiaOponente1 &gt; 5">
+                        <then>
+                            <assign variable="furiaOponente1" expression="0"/>
+                        </then>
+                        <else/>
+                    </if>
+                    <if expression="furiaOponente2 &gt; 5">
+                        <then>
+                            <assign variable="furiaOponente2" expression="0"/>
+                        </then>
+                        <else/>
+                    </if>
+                    <if expression="furiaGousma1 &gt; 5">
+                        <then>
+                            <assign variable="furiaGousma1" expression="0"/>
+                        </then>
+                        <else/>
+                    </if>
+                    <if expression="furiaGousma2 &gt; 5">
+                        <then>
+                            <assign variable="furiaGousma2" expression="0"/>
+                        </then>
+                        <else/>
+                    </if>
+                    <if expression="(furiaGousma1 = 0 and furiaGousma2 = 0)">
+                        <then>
+                            <output expression="&quot;Voc&#234; perdeu! Suas Gousmas foram derrotadas!&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="&quot;Voc&#234; venceu! O oponente perdeu todas as Gousmas!&quot;" newline="True"/>
+                        </else>
+                    </if>
+                    <output expression="&quot;Deseja jogar novamente? (S/N)&quot;" newline="True"/>
+                    <input variable="jogarNovamente"/>
+                </while>
+            </while>
+            <output expression="&quot;retornando ao menu principal&quot;" newline="True"/>
+        </body>
+    </function>
+    <function name="PerguntaEResposta" type="Integer" variable="opcao">
+        <parameters/>
+        <body>
+            <declare name="resposta" type="Integer" array="False" size=""/>
+            <declare name="opcao" type="Integer" array="False" size=""/>
+            <output expression="&quot;qual a capital da Fran&#231;a?&quot;" newline="True"/>
+            <output expression="&quot;1 - Londres&quot;" newline="True"/>
+            <output expression="&quot;2 - Berlim&quot;" newline="True"/>
+            <output expression="&quot;3 - Paris&quot;" newline="True"/>
+            <output expression="&quot;4 - Roma&quot;" newline="True"/>
+            <input variable="opcao"/>
+            <if expression="opcao = 3">
+                <then>
+                    <output expression="&quot;correto!&quot;" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;errado!&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
