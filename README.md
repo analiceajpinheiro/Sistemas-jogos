@@ -29,7 +29,11 @@ Gousmas, que podem se dividir e acumular fúria ao serem atacadas.
 
 ## 💻 Tecnologias
 
-- Flowgorithm 
+- Flowgorithm
+
+## Participantes
+Nathalia Gomes
+Analice Johnston
 
 ## 📄 Licença
 
