@@ -32,7 +32,7 @@ Gousmas, que podem se dividir e acumular fúria ao serem atacadas.
 - Flowgorithm
 
 ## Participantes
-Nathalia Gomes
+Nathalia Gomes <br>
 Analice Johnston
 
 
